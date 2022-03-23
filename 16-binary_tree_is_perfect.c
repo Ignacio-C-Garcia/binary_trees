@@ -56,12 +56,12 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	isperfect += binary_tree_balance(tree);
-	if (isperfect == 0)
-		return (1);
+	isperfect = binary_tree_balance(tree);
+	if (isperfect != 0)
+		return (0);
 	if (tree->left)
-		isperfect +=  binary_tree_is_perfect(tree->left);
+		binary_tree_is_perfect(tree->left);
 	if (tree->right)
-		isperfect +=  binary_tree_is_perfect(tree->right);
-	return (0);
+		binary_tree_is_perfect(tree->right);
+	return (1);
 }
