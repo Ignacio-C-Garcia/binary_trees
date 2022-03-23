@@ -9,6 +9,8 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
 	binary_tree_t *Nchild;
 
+	if (!parent)
+		return (NULL);
 	Nchild = malloc(sizeof(binary_tree_t));
 	if (Nchild == NULL)
 		return (NULL);
